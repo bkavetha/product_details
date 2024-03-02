@@ -1,0 +1,14 @@
+.available{
+   border: 1px green solid;
+   background-color: green;
+   color: white;
+   padding: 6px;
+   border-radius: 5px;
+}
+.unavailable{
+    border: 1px red solid;
+    background-color: red;
+    color: white;
+    padding: 6px;
+    border-radius: 5px;
+ }

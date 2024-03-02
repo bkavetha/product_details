@@ -1,0 +1,64 @@
+{
+    "products":[
+        {
+            "id": 1001,
+            "name": "HTML",
+            "price": 85,
+            "in_stock": true
+        },
+        {
+            "id": 1002,
+            "name": "CSS",
+            "price": 85,
+            "in_stock": true
+        },
+        {
+            "id": 1003,
+            "name": "JavaScript",
+            "price": 85,
+            "in_stock": true
+        },
+        {
+            "id": 1004,
+            "name": "Python",
+            "price": 85,
+            "in_stock": false
+        },
+        {
+            "id": 1005,
+            "name": "React",
+            "price": 85,
+            "in_stock": true
+        },
+        {
+            "id": 1006,
+            "name": "Angular",
+            "price": 85,
+            "in_stock": false
+        },
+        {
+            "id": 1007,
+            "name": "NodeJS",
+            "price": 85,
+            "in_stock": true
+        },
+        {
+            "id": 1008,
+            "name": "SQL",
+            "price": 85,
+            "in_stock": false
+        },
+        {
+            "id": 1009,
+            "name": "NoSQL",
+            "price": 85,
+            "in_stock": true
+        },
+        {
+            "id": 1001,
+            "name": "UI/UX Developer",
+            "price": 85,
+            "in_stock": true
+        }
+    ]
+}
