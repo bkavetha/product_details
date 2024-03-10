@@ -10,7 +10,7 @@
             "id": 1002,
             "name": "CSS",
             "price": 85,
-            "in_stock": true
+            "in_stock": false
         },
         {
             "id": 1003,

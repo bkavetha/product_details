@@ -1,19 +1,27 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import './product.css';
 
 const ProductList = () => {
     const [product, setProduct] = useState([]);
+    const [url, setUrl] = useState("http://localhost:5000/products")
+    
+
+    const fetchProducts = useCallback(async () => {
+        const resp = await fetch(url);
+        const data = await resp.json();
+        setProduct(data)
+    }, [url])
 
     useEffect(() => {
-        fetch("http://localhost:5000/products")
-        .then(resp => resp.json())
-        .then(data => setProduct(data))
-    }, [])
+        fetchProducts();
+    }, [fetchProducts]);
 
     return(
-        <>
+        <> 
+        {/* <button className="all_btn" style={{marginRight: '50px'}} onClick={() => setCounter(counter + 1)}>{counter}</button> */}
+        <button className="all_btn" onClick={() => setUrl("http://localhost:5000/products")}>All</button>
+        <button className="in_stock_btn" onClick={() => setUrl("http://localhost:5000/products?in_stock=true")}>In Stock Product List</button>
             <div>
             <h1 style={{textDecoration:"underline"}}>ProductList</h1>
             {product.map((item) => (

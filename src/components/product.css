@@ -12,3 +12,17 @@
     padding: 6px;
     border-radius: 5px;
  }
+ .all_btn{
+   padding:8px; 
+   background-color: rgb(21, 136, 178); 
+   color:white;
+   cursor: pointer;
+ }
+ .in_stock_btn{
+   margin-left: 140px;
+   margin-top: 60px; 
+    padding:8px; 
+    background-color:rgb(21, 136, 178); 
+    color:white;
+    cursor: pointer;
+ }
