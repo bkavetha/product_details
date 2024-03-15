@@ -1,21 +1,49 @@
 import React from "react";
 import { useEffect, useState, useCallback } from "react";
 import './product.css';
+import { FetchDetails } from "../hooks/useFetch";
 
 const ProductList = () => {
-    const [product, setProduct] = useState([]);
-    const [url, setUrl] = useState("http://localhost:5000/products")
+    // const [product, setProduct] = useState([]);
+    const [url, setUrl] = useState("http://localhost:5000/products/")
+    const {data : products, loading, error} = FetchDetails(url); 
     
+    // const [counter, setCounter] = useState(0);
 
-    const fetchProducts = useCallback(async () => {
-        const resp = await fetch(url);
-        const data = await resp.json();
-        setProduct(data)
-    }, [url])
+    // (1) to fetch data and display in a console
 
-    useEffect(() => {
-        fetchProducts();
-    }, [fetchProducts]);
+    // useEffect(() => {   
+    //     fetch(url)
+    //     .then(resp => resp.json())
+    //     .then(data => setProduct(data))
+    // }, [url]);
+
+    // useEffect(() => {
+    //     console.log(counter);
+    // }, [counter]);
+
+    // (2) to fetch data using json server
+
+    // useEffect(() => { 
+    //     const fetchProducts = async () => {
+    //         const resp = await fetch(url);
+    //         const data = await resp.json();
+    //         setProduct(data);
+    //     }
+    //     fetchProducts();
+    // }, [url])
+
+    // ( 3) fetch data using callback function
+
+    // const fetchProducts = useCallback(async () => {
+    //     const resp = await fetch(url);
+    //     const data = await resp.json();
+    //     setProduct(data)
+    // }, [url])
+
+    // useEffect(() => {
+    //     fetchProducts();
+    // }, [fetchProducts]);
 
     return(
         <> 
@@ -24,7 +52,12 @@ const ProductList = () => {
         <button className="in_stock_btn" onClick={() => setUrl("http://localhost:5000/products?in_stock=true")}>In Stock Product List</button>
             <div>
             <h1 style={{textDecoration:"underline"}}>ProductList</h1>
-            {product.map((item) => (
+
+            { loading && <p>Loading Product List.....</p>}
+
+            {error && <p>{error}</p>}
+
+            {products && products.map((item) => (
                 <>
                   <p>Product ID: {item.id}</p><h2>{item.name}</h2>
                   <h4 style={{display:"inline-block"}}>Rs. {item.price}</h4>
